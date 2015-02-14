@@ -31,4 +31,7 @@ app.service('parseService', function($http){
             url: 'https://api.parse.com/1/classes/chat?order=-createdAt'
         });
   };
+  
+  
+  
 });
