@@ -8,11 +8,13 @@
   <body ng-controller="mainCtrl">
     <div class="main-container">
       <h1> DevMountain Chat Room </h1>
+      <!--<button ng-click="someOrder = 'createdAt'">Filter by date created</button>-->
       <form ng-submit="postData()">
         <input class="form-control text-box" type="text" ng-model="message" placeholder="Message">
+        <input class="form-control text-box" type="text" ng-model="filterTerm" placeholder="filterby"></input>
       </form>
       <div class="messages-container">
-        <p ng-repeat="message in messages"> {{message.text}} </p>
+        <p ng-repeat="message in messages | filter : filterTerm"> {{message.text}}  ~  <em>{{message.createdAt | date : 'MMM d, h:mm a'}}</em></p>
       </div>
     </div>
     <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.19.min.js"></script>
